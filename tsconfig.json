@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     // Enable latest features
-    "lib": ["ESNext", "DOM"],
+    "lib": ["ESNext"],
     "target": "ESNext",
     "module": "ESNext",
     "moduleDetection": "force",
@@ -22,6 +22,14 @@
     // Some stricter flags (disabled by default)
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noPropertyAccessFromIndexSignature": false
-  }
+    "noPropertyAccessFromIndexSignature": false,
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@types/*": ["./src/lib/types/*"],
+      "@database/*": ["./src/database/*"],
+      "@static/*": ["./static/*"]
+    }
+  },
+  "include": ["./src/**/*"],
 }
