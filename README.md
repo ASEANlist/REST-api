@@ -1,5 +1,9 @@
 # dlsea-api
 
+## Getting started
+
+Download pocketbase executable from [](https://pocketbase.io/docs/) and copy it to `/pocketbase` folder. To run the database, run `bun run db`
+
 To install dependencies:
 
 ```bash
@@ -11,5 +15,3 @@ To run:
 ```bash
 bun run index.ts
 ```
-
-This project was created using `bun init` in bun v1.1.2. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
