@@ -175,4 +175,5 @@ dist
 .DS_Store
 
 pocketbase/pocketbase
+pocketbase/pb_data/
 pocketbase/pocketbase.exe
