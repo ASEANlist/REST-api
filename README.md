@@ -2,16 +2,12 @@
 
 ## Getting started
 
-Download pocketbase executable from [here](https://pocketbase.io/docs/) and copy it to `/pocketbase` folder. To run the database, run `bun run db`
-
-To install dependencies:
+Download pocketbase executable from [here](https://pocketbase.io/docs/) and copy it to `/pocketbase` folder.
 
 ```bash
-bun install
+bun i # install dependencies
+bun run db # start PocketBase server
+bun run dev # start REST API server
 ```
 
-To run:
-
-```bash
-bun run index.ts
-```
+API documentation is available at `/docs`.
