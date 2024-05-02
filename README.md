@@ -2,7 +2,7 @@
 
 ## Getting started
 
-Download pocketbase executable from [](https://pocketbase.io/docs/) and copy it to `/pocketbase` folder. To run the database, run `bun run db`
+Download pocketbase executable from [here](https://pocketbase.io/docs/) and copy it to `/pocketbase` folder. To run the database, run `bun run db`
 
 To install dependencies:
 
