@@ -175,7 +175,8 @@
 # Finder (MacOS) folder config
 **\.DS_Store
 
-**\pocketbase
+pocketbase\*
+pocketbase\.*
 
 # flyctl launch added from node_modules\minipass-sized\.gitignore
 # ignore most things, include some others
