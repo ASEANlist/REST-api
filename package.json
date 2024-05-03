@@ -12,7 +12,8 @@
   "scripts": {
     "dev": "bun --watch src/index.ts",
     "start": "bun run src/index.ts",
-    "db": "./pocketbase/pocketbase serve"
+    "db": "./pocketbase/pocketbase serve",
+    "typegen": "bunx pocketbase-typegen --db ./pocketbase/pb_data/data.db --out ./src/types/pocketbase.ts"
   },
   "dependencies": {
     "@types/cors": "^2.8.17",
@@ -23,6 +24,7 @@
     "express": "^4.19.2",
     "express-rate-limit": "^7.2.0",
     "pocketbase": "^0.21.2",
+    "pocketbase-typegen": "^1.2.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0"
   }
