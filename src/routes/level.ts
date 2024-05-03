@@ -1,7 +1,7 @@
 import getLevel from '@src/utils/level/getLevel'
-import express from 'express'
+import { Router } from 'express'
 
-const router = express.Router()
+const router = Router()
 
 router.route('/:id')
     /**
