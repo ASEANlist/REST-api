@@ -3,6 +3,12 @@ import { Router } from 'express'
 
 const router = Router()
 
+router.use((req, res, next) => {
+    res.set('Cache-Control', 'public, s-maxage=180, max-age=180')
+    next()
+})
+
+router.route('/')
     /**
      * @openapi
      * "/list/dl":
@@ -46,8 +52,6 @@ const router = Router()
      *           application/json:
      *             schema:
      */
-
-router.route('/')
     .get(async (req, res) => {
         try {
             res.send(await getList(req.query))
