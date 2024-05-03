@@ -1,4 +1,4 @@
-name: API deploy
+name: PocketBase deploy
 on:
   push:
     branches:
