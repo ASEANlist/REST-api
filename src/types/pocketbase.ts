@@ -74,7 +74,7 @@ export type RecordsRecord = {
 	player: RecordIdString
 	progress: number
 	status: RecordsStatusOptions
-	videoURL?: string
+	videoURL: string
 }
 
 export enum RecordsViewStatusOptions {
@@ -88,13 +88,12 @@ export type RecordsViewRecord = {
 	progress: number
 	rating?: number
 	status: RecordsViewStatusOptions
-	videoURL?: string
+	videoURL: string
 }
 
 export type UsersRecord = {
 	avatar?: string
 	discord?: string
-	name?: string
 	youtube?: string
 }
 
