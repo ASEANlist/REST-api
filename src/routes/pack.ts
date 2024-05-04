@@ -6,7 +6,7 @@ const router = Router()
 router.route('/:name')
     /**
      * @openapi
-     * "/level/{id}":
+     * "/pack/{name}":
      *   get:
      *     tags:
      *       - Pack
