@@ -1,4 +1,4 @@
-import getList from '@src/utils/list/getList'
+import player from '@src/utils/player'
 import { Router } from 'express'
 
 const router = Router()
@@ -11,11 +11,11 @@ router.use((req, res, next) => {
 router.route('/')
     /**
      * @openapi
-     * "/list/dl":
+     * "/players":
      *   get:
      *     tags:
-     *       - List
-     *     summary: Get all records of the Demon List
+     *       - Player
+     *     summary: Get a list of player
      *     parameters:
      *       - name: start
      *         in: query
@@ -54,9 +54,10 @@ router.route('/')
      */
     .get(async (req, res) => {
         try {
-            res.send(await getList(req.query))
-        } catch {
-            res.status(500)
+            res.send(await player.getList(req.query))
+        } catch(err) {
+            console.error(err)
+            res.status(500).send()
         }
     })
 

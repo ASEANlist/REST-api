@@ -8,53 +8,15 @@ router.use((req, res, next) => {
     next()
 })
 
-router.route('/:id')
+router.route('/')
     /**
      * @openapi
-     * "/level/{id}":
+     * "/levels":
      *   get:
      *     tags:
      *       - Level
-     *     summary: Get a single level by the id
+     *     summary: Get a list of level
      *     parameters:
-     *       - name: id
-     *         in: path
-     *         description: The id of the level
-     *         required: true
-     *         schema:
-     *           type: number
-     *     responses:
-     *       200:
-     *         description: Success
-     *         content:
-     *           application/json:
-     *             schema:
-     */
-    .get(async (req, res) => {
-        try {
-            const { id } = req.params
-            res.send(await level.getSingle(parseInt(id)))
-        } catch (err) {
-            console.error(err)
-            res.status(500).send()
-        }
-    })
-
-router.route('/:id/records')
-    /**
-     * @openapi
-     * "/level/{id}/records":
-     *   get:
-     *     tags:
-     *       - Level
-     *     summary: Get a list of record of a level
-     *     parameters:
-     *       - name: id
-     *         in: path
-     *         description: The id of the level
-     *         required: true
-     *         schema:
-     *           type: number
      *       - name: start
      *         in: query
      *         description: Range start index
@@ -76,13 +38,6 @@ router.route('/:id/records')
      *         schema:
      *           type: string
      *           default: rank
-     *       - name: status
-     *         in: query
-     *         description: Record's status
-     *         required: false
-     *         schema:
-     *           type: string
-     *           default: accepted
      *       - name: asc
      *         in: query
      *         description: Sort ascending
@@ -99,9 +54,8 @@ router.route('/:id/records')
      */
     .get(async (req, res) => {
         try {
-            const { id } = req.params
-            res.send(await level.getRecords(parseInt(id), req.query))
-        } catch (err) {
+            res.send(await level.getList(req.query))
+        } catch(err) {
             console.error(err)
             res.status(500).send()
         }

@@ -1,5 +1,5 @@
-import level from '@src/utils/level'
-import { Router } from 'express'
+import { Router } from "express";
+import player from "@src/utils/player";
 
 const router = Router()
 
@@ -19,10 +19,10 @@ router.route('/:id')
      *     parameters:
      *       - name: id
      *         in: path
-     *         description: The id of the level
+     *         description: The id of the player
      *         required: true
      *         schema:
-     *           type: number
+     *           type: string
      *     responses:
      *       200:
      *         description: Success
@@ -32,29 +32,27 @@ router.route('/:id')
      */
     .get(async (req, res) => {
         try {
-            const { id } = req.params
-            res.send(await level.getSingle(parseInt(id)))
+            res.send(await player.getSingle(req.params.id))
         } catch (err) {
             console.error(err)
             res.status(500).send()
         }
     })
-
 router.route('/:id/records')
     /**
      * @openapi
-     * "/level/{id}/records":
+     * "/player/{id}/records":
      *   get:
      *     tags:
-     *       - Level
-     *     summary: Get a list of record of a level
+     *       - Player
+     *     summary: Get a list of record of a player
      *     parameters:
      *       - name: id
      *         in: path
      *         description: The id of the level
      *         required: true
      *         schema:
-     *           type: number
+     *           type: string
      *       - name: start
      *         in: query
      *         description: Range start index
@@ -100,7 +98,8 @@ router.route('/:id/records')
     .get(async (req, res) => {
         try {
             const { id } = req.params
-            res.send(await level.getRecords(parseInt(id), req.query))
+            const a = await player.getRecords(id, req.query)
+            res.send(a)
         } catch (err) {
             console.error(err)
             res.status(500).send()
