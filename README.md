@@ -4,6 +4,6 @@ Download pocketbase executable from [here](https://pocketbase.io/docs/) and copy
 
 ```bash
 bun i # install dependencies
-bun run db # start PocketBase server
+bun run db # start PocketBase server (run this in a seperate terminal)
 bun run dev # start REST API server
 ```
