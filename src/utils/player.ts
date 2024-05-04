@@ -1,9 +1,9 @@
 import { pb } from "@src/database/pocketbase";
+import type { PlayerView } from "@src/types/Player";
 import type { Record } from "@src/types/Record";
-import type { BaseSystemFields, PlayersViewRecord } from "@src/types/pocketbase";
 
 export default {
-    getSingle: async (id: string): Promise<BaseSystemFields & PlayersViewRecord> => {
+    getSingle: async (id: string): Promise<PlayerView> => {
         console.log(id)
         return await pb.collection('players_view').getFirstListItem(`id="${id}"`);
     },

@@ -1,9 +1,9 @@
 import { pb } from "@src/database/pocketbase";
+import type { PlayerView } from "@src/types/Player";
 import type { Record } from "@src/types/Record";
-import type { BaseSystemFields, LevelsViewRecord } from "@src/types/pocketbase";
 
 export default {
-    getSingle: async (id: number): Promise<BaseSystemFields & LevelsViewRecord> => {
+    getSingle: async (id: number): Promise<PlayerView> => {
         return await pb.collection('levels_view').getFirstListItem(`levelID=${id}`);
     },
     getList: async ({ start = '1', end = '50', sort = 'rank', asc = 'true' } = {}): Promise<Record[]> => {
