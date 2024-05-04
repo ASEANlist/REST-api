@@ -97,9 +97,8 @@ router.route('/:id/records')
      */
     .get(async (req, res) => {
         try {
-            const { id } = req.params
-            const a = await player.getRecords(id, req.query)
-            res.send(a)
+            const { id } = req.params            
+            res.send(await player.getRecords(id, req.query))
         } catch (err) {
             console.error(err)
             res.status(500).send()

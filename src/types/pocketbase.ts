@@ -57,6 +57,7 @@ export type LevelsViewRecord<Trank = unknown> = {
 
 export type PlayersViewRecord<Trank = unknown, Trating = unknown> = {
 	avatar?: string
+	country: string
 	discord?: string
 	rank?: null | Trank
 	rating?: null | Trating
@@ -93,6 +94,7 @@ export type RecordsViewRecord = {
 
 export type UsersRecord = {
 	avatar?: string
+	country: string
 	discord?: string
 	youtube?: string
 }

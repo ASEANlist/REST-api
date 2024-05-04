@@ -1,5 +1,10 @@
 import { pb } from "@src/database/pocketbase";
-import type { BaseSystemFields, PlayersViewRecord, RecordsViewRecord } from "@src/types/pocketbase";
+import type { BaseSystemFields, PlayersViewRecord, RecordsViewRecord, UsersRecord, LevelsRecord } from "@src/types/pocketbase";
+
+interface Expand {
+    player: BaseSystemFields & UsersRecord,
+    level: BaseSystemFields & LevelsRecord,
+}
 
 export default {
     getSingle: async (id: string): Promise<BaseSystemFields & PlayersViewRecord> => {
@@ -14,7 +19,7 @@ export default {
         // @ts-ignore
         return res.items;
     },
-    getRecords: async (id: string, { start = '1', end = '50', sort = 'created', status = 'accepted', asc = 'true' } = {}): Promise<(BaseSystemFields & RecordsViewRecord)[]> => {
+    getRecords: async (id: string, { start = '1', end = '50', sort = 'created', status = 'accepted', asc = 'true' } = {}): Promise<(BaseSystemFields<Expand> & RecordsViewRecord)[]> => {
         const res = await pb.collection('records_view').getList(parseInt(start), parseInt(end), {
             filter: `player.id="${id}" && status="${status}"`,
             sort: `${asc == 'true' ? '+' : '-'}${sort}`,
