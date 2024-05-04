@@ -27,7 +27,6 @@ router.route('/:name')
      */
     .get(async (req, res) => {
         try {
-            console.log(req.params.name)
             res.send(await level.getPack(req.params.name))
         } catch(err) {
             console.error(err)
