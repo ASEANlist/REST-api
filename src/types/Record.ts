@@ -1,8 +1,8 @@
-import type { BaseSystemFields, PlayersViewRecord, RecordsViewRecord, UsersRecord, LevelsRecord } from "@src/types/pocketbase";
+import type { BaseSystemFields, PlayersViewRecord, UsersRecord, LevelsRecord } from "@src/types/pocketbase";
 
-interface RecordExpand {
+interface Expand {
     player: BaseSystemFields & UsersRecord,
     level: BaseSystemFields & LevelsRecord,
 }
 
-export type Record = BaseSystemFields<RecordExpand> & PlayersViewRecord
+export type Record = BaseSystemFields<Expand> & PlayersViewRecord

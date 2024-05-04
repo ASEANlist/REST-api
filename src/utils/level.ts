@@ -1,4 +1,5 @@
 import { pb } from "@src/database/pocketbase";
+import type { Pack } from "@src/types/Pack";
 import type { PlayerView } from "@src/types/Player";
 import type { Record } from "@src/types/Record";
 
@@ -23,5 +24,10 @@ export default {
 
         // @ts-ignore
         return res.items;
+    },
+    getPack: async (name: string): Promise<Pack> => {
+        return await pb.collection('packs').getFirstListItem(`name="${name}"`, {
+            expand: 'levels'
+        });
     }
 }

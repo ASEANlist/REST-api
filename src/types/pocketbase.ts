@@ -8,6 +8,7 @@ import type { RecordService } from 'pocketbase'
 export enum Collections {
 	Levels = "levels",
 	LevelsView = "levels_view",
+	Packs = "packs",
 	PlayersView = "players_view",
 	Records = "records",
 	RecordsView = "records_view",
@@ -53,6 +54,11 @@ export type LevelsViewRecord<Trank = unknown> = {
 	rank?: null | Trank
 	rating: number
 	videoID: string
+}
+
+export type PacksRecord = {
+	levels?: RecordIdString[]
+	name?: string
 }
 
 export type PlayersViewRecord<Trank = unknown, Trating = unknown> = {
@@ -102,6 +108,7 @@ export type UsersRecord = {
 // Response types include system fields and match responses from the PocketBase API
 export type LevelsResponse<Texpand = unknown> = Required<LevelsRecord> & BaseSystemFields<Texpand>
 export type LevelsViewResponse<Trank = unknown, Texpand = unknown> = Required<LevelsViewRecord<Trank>> & BaseSystemFields<Texpand>
+export type PacksResponse<Texpand = unknown> = Required<PacksRecord> & BaseSystemFields<Texpand>
 export type PlayersViewResponse<Trank = unknown, Trating = unknown, Texpand = unknown> = Required<PlayersViewRecord<Trank, Trating>> & BaseSystemFields<Texpand>
 export type RecordsResponse<Texpand = unknown> = Required<RecordsRecord> & BaseSystemFields<Texpand>
 export type RecordsViewResponse<Texpand = unknown> = Required<RecordsViewRecord> & BaseSystemFields<Texpand>
@@ -112,6 +119,7 @@ export type UsersResponse<Texpand = unknown> = Required<UsersRecord> & AuthSyste
 export type CollectionRecords = {
 	levels: LevelsRecord
 	levels_view: LevelsViewRecord
+	packs: PacksRecord
 	players_view: PlayersViewRecord
 	records: RecordsRecord
 	records_view: RecordsViewRecord
@@ -121,6 +129,7 @@ export type CollectionRecords = {
 export type CollectionResponses = {
 	levels: LevelsResponse
 	levels_view: LevelsViewResponse
+	packs: PacksResponse
 	players_view: PlayersViewResponse
 	records: RecordsResponse
 	records_view: RecordsViewResponse
@@ -133,6 +142,7 @@ export type CollectionResponses = {
 export type TypedPocketBase = PocketBase & {
 	collection(idOrName: 'levels'): RecordService<LevelsResponse>
 	collection(idOrName: 'levels_view'): RecordService<LevelsViewResponse>
+	collection(idOrName: 'packs'): RecordService<PacksResponse>
 	collection(idOrName: 'players_view'): RecordService<PlayersViewResponse>
 	collection(idOrName: 'records'): RecordService<RecordsResponse>
 	collection(idOrName: 'records_view'): RecordService<RecordsViewResponse>
